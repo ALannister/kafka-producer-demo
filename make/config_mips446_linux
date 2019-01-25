@@ -1,0 +1,13 @@
+#
+##  相关配置
+#
+
+##主机开发环境(ppcgnu_gcc_linux, i386_gcc_linux,mips_gcc_linux)
+VERSION       = 446
+G_DEVTOOLS	  =	mips_gcc_linux
+CROSS_COMPILE = /home/hinoc/complier/gcc446/bin/mips-linux-
+LIB           = -L/home/hinoc/complier/gcc446/lib
+CC			  =	$(CROSS_COMPILE)gcc
+AR			  =	$(CROSS_COMPILE)ar crs
+G_ENDIAN      = big
+INC           = -I/home/hinoc/complier/gcc446/include

@@ -1,0 +1,13 @@
+#
+##  相关配置
+#
+
+##主机开发环境(ppcgnu_gcc_linux, i386_gcc_linux,mips_gcc_linux)
+VERSION       = 342
+G_DEVTOOLS	  =	mips_gcc_linux
+CROSS_COMPILE = /home/hinoc/complier/gcc342/bin/mipsel-linux-
+LIB           = -L/home/hinoc/complier/gcc342/lib
+CC			  =	$(CROSS_COMPILE)gcc
+AR			  =	$(CROSS_COMPILE)ar crs
+G_ENDIAN      = little
+INC           = -I/home/hinoc/complier/gcc342/include

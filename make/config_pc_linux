@@ -1,0 +1,11 @@
+#
+##  相关配置
+#
+
+##主机开发环境(ppcgnu_gcc_linux, i386_gcc_linux,arm_gcc_linux)
+G_DEVTOOLS	= i386_gcc_linux
+CC          = gcc -m32
+LIB         = -L/lib
+AR	        = ar crs
+G_ENDIAN    = little
+INC         = -I/usr/include

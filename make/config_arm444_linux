@@ -1,0 +1,13 @@
+#
+##  相关配置
+#
+
+##主机开发环境(ppcgnu_gcc_linux, i386_gcc_linux,arm_gcc_linux)
+VERSION       = 444
+G_DEVTOOLS	  =	arm_gcc_linux
+CROSS_COMPILE = /home/hinoc/complier/gcc444/arm-fsl-linux-gnueabi/bin/arm-fsl-linux-gnueabi-
+LIB           = -L/home/hinoc/complier/gcc444/arm-fsl-linux-gnueabi/lib
+CC			  =	$(CROSS_COMPILE)gcc
+AR			  =	$(CROSS_COMPILE)ar crs
+G_ENDIAN      = little
+INC           = -I/home/hinoc/complier/gcc444/arm-fsl-linux-gnueabi/arm-fsl-linux-gnueabi/include

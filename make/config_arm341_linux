@@ -1,0 +1,13 @@
+#
+##  相关配置
+#
+
+##主机开发环境(ppcgnu_gcc_linux, i386_gcc_linux,arm_gcc_linux)
+VERSION       = 341
+G_DEVTOOLS	  =	arm_gcc_linux
+CROSS_COMPILE = /usr/local/arm/3.4.1/bin/arm-linux-
+LIB           = -L/usr/local/arm/3.4.1/arm-linux/lib
+CC			  =	$(CROSS_COMPILE)gcc
+AR			  =	$(CROSS_COMPILE)ar crs
+G_ENDIAN      = little
+INC           = -I/usr/local/arm/3.4.1/arm-linux/include
