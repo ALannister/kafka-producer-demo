@@ -1,2 +1,2 @@
 # kafka-producer-demo
-a demo of kafka producer
+a demo of kafka producer.
