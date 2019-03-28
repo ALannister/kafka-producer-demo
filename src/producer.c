@@ -42,11 +42,13 @@ int main(int argc,char *argv[]){
         fprintf(stderr, "  ERROR  %s\n", errstr);
 		return ERROR;
      }
+     /*
     if (rd_kafka_conf_set(rd_kafka_conf, "compression.codec", "snappy",
                               errstr, sizeof(errstr)) != RD_KAFKA_CONF_OK) {//设置消息压缩格式
         fprintf(stderr, "  ERROR  %s\n", errstr);
         return;
      }
+     */
 	rd_kafka_conf_set_dr_msg_cb(rd_kafka_conf, dr_msg_cb);//注册回调函数，负责报告消息发送成功与否
 
 	//初始化生产者
@@ -57,9 +59,12 @@ int main(int argc,char *argv[]){
     }
 	free(errstr);
 	rd_kafka_topic_t* rd_kafka_topic = rd_kafka_topic_new(rd_kafka_producer,"hello",NULL);
+    int arr[5]={0,1,0,1,1};
+    /*
 	char* buf = "Nice to meet you.";
     printf("%s\n",buf);
     printf("%d\n",strlen(buf));
+    */
 retry:
 	if (rd_kafka_produce(
                         /* Topic object */
@@ -69,7 +74,7 @@ retry:
                         /* Make a copy of the payload. */
                         RD_KAFKA_MSG_F_COPY,
                         /* Message payload (value) and length */
-                        buf, strlen(buf),
+                        arr, sizeof(arr),
                         /* Optional key and its length */
                         NULL, 0,
                         /* Message opaque, provided in
@@ -92,10 +97,10 @@ retry:
 		 *Success to *enqueue* message for producing.
 		 */
 		printf("  INFO  Producer success to enqueue message (%zd byte) for topic %s\n",
-			    strlen(buf), rd_kafka_topic_name(rd_kafka_topic));
+			    sizeof(arr), rd_kafka_topic_name(rd_kafka_topic));
         rd_kafka_flush(rd_kafka_producer, 5*1000 /* wait for max 5 seconds */);
 	}
-
+    goto retry;
     rd_kafka_topic_destroy(rd_kafka_topic);
     printf("  INFO  Flushing final messages..\n");
     rd_kafka_destroy(rd_kafka_producer);
